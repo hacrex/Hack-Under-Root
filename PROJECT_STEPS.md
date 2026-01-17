@@ -11,11 +11,12 @@ This document outlines suggested steps to enhance and maintain the Hack-Under-Ro
 ## Step 2: Organize Content with Front Matter
 - **Add YAML Front Matter**: Update each markdown file to include front matter for metadata (e.g., title, date, category, tags).
   Example:
+
   title: "What's an Ethical Hacker?"
   date: 2013-03-22
   category: Cybersecurity & Hacking
   tags: [ethical-hacking, basics]
-  
+
 - **Categorize and Tag**: Ensure consistent categories (e.g., Cybersecurity, Linux, AI) and tags for better navigation and search.
 
 ## Step 3: Design and Customize the Site
