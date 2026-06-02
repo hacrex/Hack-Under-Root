@@ -726,8 +726,8 @@
   <Variable name="dark.bgAlt" description="Alternative background color" type="color" default="#2d2d30" value="#2d2d30"/>
   <Variable name="dark.bgSec" description="Secondary background color" type="color" default="#252526" value="#252526"/>
 </Group>
-<Group description="Plugin: t.me/Plus_UI_Official Home Title">
-  <Variable name="hometitle.status" description="t.me/Plus_UI_Official Home Page Title | (1) Default (2) Separate (Make Sure Updating Title)" type="length" min="1px" max="2px" default="2px" value="1px"/>
+<Group description="Plugin: Home Title">
+  <Variable name="hometitle.status" description="Home Page Title 1 Default 2 Separate Make Sure Updating Title" type="length" min="1px" max="2px" default="2px" value="1px"/>
 </Group>
 
 
@@ -988,15 +988,15 @@ body#layout .sideB{width:40%}
     <script async='async' src='https://cdn.ampproject.org/v0.js'/>
     <b:if cond='!data:story.active'>
       <b:comment><!--[ AMP components ]--></b:comment>
-      <script async='async' t.me/Plus_UI_Official-element='amp-form' src='https://cdn.ampproject.org/v0/amp-form-0.1.js'/>
-      <script async='async' t.me/Plus_UI_Official-element='amp-iframe' src='https://cdn.ampproject.org/v0/amp-iframe-0.1.js'/>
-      <script async='async' t.me/Plus_UI_Official-element='amp-bind' src='https://cdn.ampproject.org/v0/amp-bind-0.1.js'/>
+      <script async='async' custom-element='amp-form' src='https://cdn.ampproject.org/v0/amp-form-0.1.js'/>
+      <script async='async' custom-element='amp-iframe' src='https://cdn.ampproject.org/v0/amp-iframe-0.1.js'/>
+      <script async='async' custom-element='amp-bind' src='https://cdn.ampproject.org/v0/amp-bind-0.1.js'/>
 
       <b:comment><!--[ AMP Google Analytics ]--></b:comment>
       <b:with value='{ status: (data:vars.analytics_status == &quot;2px&quot;), trackingId: (data:vars.analytics_accountNumber ? snippet(data:vars.analytics_accountNumber) : data:blog.analyticsAccountNumber) }' var='analytics'>
         <b:if cond='!data:view.isPreview and !data:view.isError and data:analytics.status and data:analytics.trackingId'>
           <b:comment><!--[ Google Analytics | amp-analytics.js ]--></b:comment>
-          <script async='async' t.me/Plus_UI_Official-element='amp-analytics' src='https://cdn.ampproject.org/v0/amp-analytics-0.1.js'/>
+          <script async='async' custom-element='amp-analytics' src='https://cdn.ampproject.org/v0/amp-analytics-0.1.js'/>
         </b:if>
       </b:with>
 
@@ -1004,16 +1004,16 @@ body#layout .sideB{width:40%}
       <b:with value='{ status: (data:vars.adsense_status == &quot;2px&quot;), clientId: (data:vars.adsense_clientId ? (&quot;ca-pub-&quot; + snippet(data:vars.adsense_clientId)) : data:blog.adsenseClientId), hostId: (data:vars.adsense_hostId ? (&quot;ca-host-pub-&quot; + snippet(data:vars.adsense_hostId)) : data:blog.adsenseHostId), hostStatus: (data:vars.adsense_hostStatus == &quot;2px&quot;) }' var='adsense'>
         <b:if cond='!data:blog.isPrivateBlog and !data:view.isPreview and !data:view.isError and data:adsense.status and data:adsense.clientId and data:vars.adsense_ampAutoAds == &quot;2px&quot;'>
           <b:comment><!--[ Google Adsense | amp-auto-ads.js ]--></b:comment>
-          <script async='async' t.me/Plus_UI_Official-element='amp-auto-ads' src='https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js'/>
+          <script async='async' custom-element='amp-auto-ads' src='https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js'/>
           <b:comment><!--[ Google Adsense | amp-ad.js ]--></b:comment>
-          <script async='async' t.me/Plus_UI_Official-element='amp-ad' src='https://cdn.ampproject.org/v0/amp-ad-0.1.js'/>
+          <script async='async' custom-element='amp-ad' src='https://cdn.ampproject.org/v0/amp-ad-0.1.js'/>
         </b:if>
       </b:with>
 
       <b:else/>
       <b:comment><!--[ Story components ]--></b:comment>
-      <script async='async' t.me/Plus_UI_Official-element='amp-video' src='https://cdn.ampproject.org/v0/amp-video-0.1.js'/>
-      <script async='async' t.me/Plus_UI_Official-element='amp-story' src='https://cdn.ampproject.org/v0/amp-story-1.0.js'/>
+      <script async='async' custom-element='amp-video' src='https://cdn.ampproject.org/v0/amp-video-0.1.js'/>
+      <script async='async' custom-element='amp-story' src='https://cdn.ampproject.org/v0/amp-story-1.0.js'/>
     </b:if>
 
     <b:comment><!--[ AMP boilerplate ]--></b:comment>
@@ -1022,7 +1022,7 @@ body#layout .sideB{width:40%}
 
   <b:if cond='!data:story.active'>
     <b:comment><!--[ CSS styles (General) ]--></b:comment>
-    <style><b:attr cond='data:amp.active' name='amp-t.me/Plus_UI_Official' value='amp-t.me/Plus_UI_Official'/><b:if cond='!data:amp.active'>/*
+    <style><b:attr cond='data:amp.active' name='amp-custom' value='amp-custom'/><b:if cond='!data:amp.active'>/*
 ==========================================================
 
   &gt;  Template Information:
@@ -3202,7 +3202,7 @@ pre .cp.d svg{color:var(--linkC);opacity:1}
 
     <b:else/>
     <b:comment><!--[ CSS styles (Story) ]--></b:comment>
-    <style amp-t.me/Plus_UI_Official='amp-t.me/Plus_UI_Official'>/*<![CDATA[*/
+    <style amp-custom='amp-custom'>/*<![CDATA[*/
 /* Story CSS */
 body{font-family:'Poppins'}
 

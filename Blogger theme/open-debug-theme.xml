@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html b:css='false' b:defaultwidgetversion='2' b:layoutsVersion='3' b:responsive='true' b:templateUrl='open-debug-theme.xml' b:templateVersion='1.0.0' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+<b:attr name='xmlns' value=''/><b:attr name='xmlns:b' value=''/><b:attr name='xmlns:expr' value=''/><b:attr name='xmlns:data' value=''/>
+<!--
+  Open Debug Theme for Blogger
+  Clean-room theme created for private debugging and import testing.
+  No proprietary theme code, bundled restricted assets, or demo posts are included.
+  License: MIT-compatible original theme scaffold for this repository.
+-->
+<head>
+  <meta expr:charset='data:blog.encoding'/>
+  <meta content='width=device-width, initial-scale=1, maximum-scale=5' name='viewport'/>
+  <meta content='IE=edge' http-equiv='X-UA-Compatible'/>
+
+  <b:if cond='data:view.isHomepage'>
+    <title><data:blog.title.escaped/></title>
+    <b:elseif cond='data:view.isSearch'/>
+    <title><data:messages.search/> - <data:blog.title.escaped/></title>
+    <b:elseif cond='data:view.isArchive'/>
+    <title><data:blog.pageName.escaped/> - <data:blog.title.escaped/></title>
+    <b:elseif cond='data:view.isError'/>
+    <title>Page not found - <data:blog.title.escaped/></title>
+    <b:else/>
+    <title><data:blog.pageName.escaped/> - <data:blog.title.escaped/></title>
+  </b:if>
+
+  <link expr:href='data:blog.url.canonical' rel='canonical'/>
+  <meta expr:content='data:blog.title.escaped' property='og:site_name'/>
+  <meta expr:content='data:blog.pageName ? data:blog.pageName.escaped : data:blog.title.escaped' property='og:title'/>
+  <meta expr:content='data:blog.metaDescription ? data:blog.metaDescription.escaped : data:blog.title.escaped' name='description'/>
+  <meta expr:content='data:blog.metaDescription ? data:blog.metaDescription.escaped : data:blog.title.escaped' property='og:description'/>
+  <meta expr:content='data:blog.url.canonical' property='og:url'/>
+  <meta content='website' property='og:type'/>
+  <meta content='summary_large_image' name='twitter:card'/>
+
+  <b:skin><![CDATA[
+/*
+  Open Debug Theme variables.
+  Descriptions intentionally use plain text accepted by Blogger skin parsing.
+*/
+<Group description="Theme Colors">
+  <Variable name="key.color" description="Primary color" type="color" default="#2563eb" value="#2563eb"/>
+  <Variable name="body.background" description="Page background" type="color" default="#f8fafc" value="#f8fafc"/>
+  <Variable name="card.background" description="Card background" type="color" default="#ffffff" value="#ffffff"/>
+  <Variable name="text.color" description="Text color" type="color" default="#0f172a" value="#0f172a"/>
+  <Variable name="muted.color" description="Muted text color" type="color" default="#64748b" value="#64748b"/>
+</Group>
+<Group description="Theme Layout">
+  <Variable name="content.width" description="Content width" type="length" min="720px" max="1440px" default="1180px" value="1180px"/>
+  <Variable name="sidebar.width" description="Sidebar width" type="length" min="240px" max="380px" default="320px" value="320px"/>
+  <Variable name="card.radius" description="Card radius" type="length" min="0px" max="32px" default="18px" value="18px"/>
+</Group>
+<Group description="Optional Features">
+  <Variable name="feature.cookie" description="Cookie notice 1 off 2 on" type="length" min="1px" max="2px" default="2px" value="2px"/>
+  <Variable name="feature.dark" description="Dark toggle 1 off 2 on" type="length" min="1px" max="2px" default="2px" value="2px"/>
+  <Variable name="feature.safelink" description="Link gate 1 off 2 on" type="length" min="1px" max="2px" default="1px" value="1px"/>
+  <Variable name="feature.ads" description="Ad placeholders 1 off 2 on" type="length" min="1px" max="2px" default="1px" value="1px"/>
+</Group>
+
+:root{--key:$(key.color);--bg:$(body.background);--card:$(card.background);--text:$(text.color);--muted:$(muted.color);--max:$(content.width);--side:$(sidebar.width);--radius:$(card.radius);color-scheme:light}
+[data-theme="dark"]{--bg:#0f172a;--card:#111827;--text:#e5e7eb;--muted:#94a3b8;--key:#60a5fa;color-scheme:dark}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.65 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}a{color:var(--key);text-decoration:none}a:hover{text-decoration:underline}img,iframe{max-width:100%;height:auto}button,input,textarea{font:inherit}.skip-link{left:-999px;position:absolute;top:auto}.skip-link:focus{background:var(--card);border:2px solid var(--key);border-radius:10px;left:1rem;padding:.7rem 1rem;top:1rem;z-index:20}.site-header{backdrop-filter:saturate(160%) blur(14px);background:color-mix(in srgb,var(--card) 88%,transparent);border-bottom:1px solid rgba(148,163,184,.25);position:sticky;top:0;z-index:10}.header-inner{align-items:center;display:flex;gap:1rem;justify-content:space-between;margin:auto;max-width:var(--max);padding:.9rem 1rem}.brand{color:var(--text);font-size:1.35rem;font-weight:800}.nav{align-items:center;display:flex;gap:.75rem}.nav a,.icon-button{border-radius:999px;color:var(--text);padding:.55rem .8rem}.nav a:hover,.icon-button:hover{background:rgba(148,163,184,.16);text-decoration:none}.icon-button{background:transparent;border:0;cursor:pointer}.hero{background:linear-gradient(135deg,color-mix(in srgb,var(--key) 20%,transparent),transparent);border-bottom:1px solid rgba(148,163,184,.2)}.hero-inner{margin:auto;max-width:var(--max);padding:3rem 1rem}.hero h1{font-size:clamp(2rem,5vw,4rem);line-height:1.05;margin:0 0 1rem}.hero p{color:var(--muted);font-size:1.1rem;margin:0;max-width:760px}.layout{display:grid;gap:1.5rem;grid-template-columns:minmax(0,1fr) var(--side);margin:auto;max-width:var(--max);padding:1.5rem 1rem}.main,.sidebar .widget,.post-card,.blog-pager,.empty-state,.ad-slot{background:var(--card);border:1px solid rgba(148,163,184,.22);border-radius:var(--radius);box-shadow:0 14px 40px rgba(15,23,42,.06)}.main{overflow:hidden}.blog-posts{display:grid;gap:1rem;padding:1rem}.post-card{padding:1.25rem}.post-title{font-size:clamp(1.4rem,3vw,2.4rem);line-height:1.15;margin:0 0 .5rem}.post-title a{color:var(--text)}.post-meta{color:var(--muted);font-size:.9rem;margin-bottom:1rem}.post-body{overflow-wrap:anywhere}.post-body pre{background:#0b1020;border-radius:14px;color:#e5e7eb;overflow:auto;padding:1rem}.read-more{align-items:center;background:var(--key);border-radius:999px;color:#fff;display:inline-flex;font-weight:700;margin-top:1rem;padding:.65rem 1rem}.read-more:hover{text-decoration:none}.sidebar{display:grid;gap:1rem;align-content:start}.sidebar .widget{padding:1rem}.widget h2,.widget-title{font-size:1rem;margin:0 0 .8rem}.Label ul,.PageList ul,.LinkList ul,.PopularPosts ul{list-style:none;margin:0;padding:0}.Label li,.PageList li,.LinkList li,.PopularPosts li{border-top:1px solid rgba(148,163,184,.2);padding:.55rem 0}.blog-pager{align-items:center;display:flex;gap:.75rem;justify-content:space-between;margin:1rem;padding:1rem}.blog-pager a{font-weight:700}.comments{border-top:1px solid rgba(148,163,184,.22);margin-top:1.5rem;padding-top:1rem}.ad-slot{color:var(--muted);display:grid;min-height:92px;place-items:center;text-align:center}.site-footer{border-top:1px solid rgba(148,163,184,.22);color:var(--muted);margin-top:2rem}.footer-inner{margin:auto;max-width:var(--max);padding:2rem 1rem}.cookie{align-items:center;background:var(--card);border:1px solid rgba(148,163,184,.35);border-radius:18px;bottom:1rem;box-shadow:0 20px 60px rgba(15,23,42,.18);display:none;gap:1rem;left:1rem;max-width:520px;padding:1rem;position:fixed;z-index:30}.cookie.show{display:flex}.cookie button,.gate button{background:var(--key);border:0;border-radius:999px;color:#fff;cursor:pointer;font-weight:700;padding:.6rem 1rem}.gate{background:var(--card);border:1px solid rgba(148,163,184,.25);border-radius:16px;margin:1rem 0;padding:1rem;text-align:center}.gate a{display:inline-flex;margin-top:.75rem}.search-panel{background:rgba(15,23,42,.55);display:none;inset:0;position:fixed;z-index:25}.search-panel.open{display:block}.search-box{background:var(--card);border-radius:22px;margin:10vh auto 0;max-width:680px;padding:1rem}.search-box form{display:flex;gap:.5rem}.search-box input{border:1px solid rgba(148,163,184,.45);border-radius:999px;flex:1;padding:.75rem 1rem}.search-box button{border:0;border-radius:999px;cursor:pointer;padding:.75rem 1rem}@media (max-width:900px){.layout{grid-template-columns:1fr}.nav{display:none}.mobile-nav-open .nav{background:var(--card);border-bottom:1px solid rgba(148,163,184,.25);display:grid;left:0;padding:1rem;position:absolute;right:0;top:100%}.header-inner{position:relative}}@media (min-width:901px){.menu-toggle{display:none}}@media print{.site-header,.sidebar,.cookie,.site-footer,.blog-pager{display:none}.layout{display:block}.main{box-shadow:none}}
+  ]]></b:skin>
+</head>
+<body>
+  <a class='skip-link' href='#content'>Skip to content</a>
+  <header class='site-header'>
+    <div class='header-inner'>
+      <a class='brand' expr:href='data:blog.homepageUrl'><data:blog.title/></a>
+      <nav class='nav' aria-label='Primary'>
+        <a expr:href='data:blog.homepageUrl'>Home</a>
+        <a expr:href='data:blog.homepageUrl + &quot;search/label/News&quot;'>News</a>
+        <a expr:href='data:blog.homepageUrl + &quot;p/about.html&quot;'>About</a>
+        <a expr:href='data:blog.homepageUrl + &quot;p/contact.html&quot;'>Contact</a>
+      </nav>
+      <div class='header-actions'>
+        <button class='icon-button search-toggle' type='button' aria-label='Open search'>Search</button>
+        <b:if cond='data:skin.vars.feature_dark == &quot;2px&quot;'><button class='icon-button theme-toggle' type='button' aria-label='Toggle theme'>Theme</button></b:if>
+        <button class='icon-button menu-toggle' type='button' aria-label='Toggle menu'>Menu</button>
+      </div>
+    </div>
+  </header>
+
+  <section class='hero'>
+    <div class='hero-inner'>
+      <h1><b:if cond='data:view.isHomepage'><data:blog.title/><b:else/><data:blog.pageName/></b:if></h1>
+      <p><b:if cond='data:blog.metaDescription'><data:blog.metaDescription/><b:else/>A clean Blogger theme for private debugging, import testing, responsive publishing, SEO metadata, dark mode, cookie notice, ads placeholders, and simple link gating.</b:if></p>
+    </div>
+  </section>
+
+  <div class='search-panel' id='search-panel' aria-hidden='true'>
+    <div class='search-box'>
+      <form expr:action='data:blog.searchUrl' method='get'>
+        <input name='q' placeholder='Search posts' type='search'/>
+        <button type='submit'>Search</button>
+        <button class='search-close' type='button'>Close</button>
+      </form>
+    </div>
+  </div>
+
+  <div class='layout' id='content'>
+    <main class='main'>
+      <b:if cond='data:skin.vars.feature_ads == &quot;2px&quot;'><div class='ad-slot'>Ad placeholder configure your own ad code in Layout</div></b:if>
+      <b:section id='main' class='blog-posts' maxwidgets='1' showaddelement='false'>
+        <b:widget id='Blog1' locked='true' title='Blog Posts' type='Blog' version='2' visible='true'>
+          <b:includable id='main'>
+            <b:if cond='data:posts.empty'>
+              <div class='empty-state'><h2>No posts yet</h2><p>Create posts in Blogger to populate this theme. No demo content is bundled.</p></div>
+            </b:if>
+            <b:loop values='data:posts' var='post'>
+              <article class='post-card'>
+                <h2 class='post-title'><a expr:href='data:post.url'><data:post.title/></a></h2>
+                <div class='post-meta'>
+                  <span><data:post.date/></span>
+                  <b:if cond='data:post.author.name'> · <span><data:post.author.name/></span></b:if>
+                </div>
+                <div class='post-body'>
+                  <b:if cond='data:view.isSingleItem'><data:post.body/><b:else/><data:post.snippet/></b:if>
+                </div>
+                <b:if cond='!data:view.isSingleItem'><a class='read-more' expr:href='data:post.url'>Read more</a></b:if>
+                <b:if cond='data:view.isSingleItem'>
+                  <b:if cond='data:skin.vars.feature_safelink == &quot;2px&quot;'><div class='gate' data-link-gate='true'>Optional link gate is enabled for manual links with class gated-link.</div></b:if>
+                  <section class='comments'><b:include data='post' name='comments'/></section>
+                </b:if>
+              </article>
+            </b:loop>
+            <div class='blog-pager'>
+              <b:if cond='data:newerPageUrl'><a expr:href='data:newerPageUrl'>Newer posts</a><b:else/><span></span></b:if>
+              <a expr:href='data:blog.homepageUrl'>Home</a>
+              <b:if cond='data:olderPageUrl'><a expr:href='data:olderPageUrl'>Older posts</a><b:else/><span></span></b:if>
+            </div>
+          </b:includable>
+          <b:includable id='comments' var='post'>
+            <b:if cond='data:post.allowComments'>
+              <h3><data:messages.comments/></h3>
+              <b:include data='post' name='commentPicker'/>
+            </b:if>
+          </b:includable>
+        </b:widget>
+      </b:section>
+    </main>
+    <aside class='sidebar'>
+      <b:section id='sidebar' showaddelement='true'>
+        <b:widget id='Profile1' locked='false' title='About' type='Profile' version='2' visible='true'/>
+        <b:widget id='Label1' locked='false' title='Labels' type='Label' version='2' visible='true'/>
+        <b:widget id='PopularPosts1' locked='false' title='Popular Posts' type='PopularPosts' version='2' visible='true'/>
+      </b:section>
+    </aside>
+  </div>
+
+  <footer class='site-footer'>
+    <div class='footer-inner'>
+      <b:section id='footer' showaddelement='true'>
+        <b:widget id='Attribution1' locked='false' title='' type='Attribution' version='2' visible='true'/>
+      </b:section>
+      <p>Open Debug Theme. No restricted assets or demo content bundled.</p>
+    </div>
+  </footer>
+
+  <b:if cond='data:skin.vars.feature_cookie == &quot;2px&quot;'>
+    <div class='cookie' id='cookie-notice'><span>This site uses cookies for Blogger features and analytics you configure.</span><button type='button' data-cookie-ok='true'>OK</button></div>
+  </b:if>
+
+  <script>//<![CDATA[
+(function(){
+  var root=document.documentElement;
+  var saved=localStorage.getItem('open-debug-theme');
+  if(saved){root.setAttribute('data-theme',saved);}
+  document.querySelectorAll('.theme-toggle').forEach(function(btn){btn.addEventListener('click',function(){var next=root.getAttribute('data-theme')==='dark'?'light':'dark';root.setAttribute('data-theme',next);localStorage.setItem('open-debug-theme',next);});});
+  document.querySelectorAll('.menu-toggle').forEach(function(btn){btn.addEventListener('click',function(){document.body.classList.toggle('mobile-nav-open');});});
+  var panel=document.getElementById('search-panel');
+  document.querySelectorAll('.search-toggle').forEach(function(btn){btn.addEventListener('click',function(){panel&&panel.classList.add('open');panel&&panel.setAttribute('aria-hidden','false');});});
+  document.querySelectorAll('.search-close').forEach(function(btn){btn.addEventListener('click',function(){panel&&panel.classList.remove('open');panel&&panel.setAttribute('aria-hidden','true');});});
+  var notice=document.getElementById('cookie-notice');
+  if(notice&&!localStorage.getItem('open-debug-cookie-ok')){notice.classList.add('show');}
+  document.querySelectorAll('[data-cookie-ok]').forEach(function(btn){btn.addEventListener('click',function(){localStorage.setItem('open-debug-cookie-ok','1');notice&&notice.classList.remove('show');});});
+  document.querySelectorAll('a.gated-link').forEach(function(link){link.addEventListener('click',function(evt){if(link.dataset.ready==='true'){return;}evt.preventDefault();var box=document.createElement('span');box.className='gate';box.textContent='Preparing link...';link.insertAdjacentElement('afterend',box);setTimeout(function(){link.dataset.ready='true';box.textContent='Link ready. Click again to continue.';},3000);});});
+})();
+  //]]></script>
+</body>
+</html>
